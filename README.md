@@ -1,6 +1,6 @@
 # OctoPrint-CustomBackground
 
-Octoprint plugin to change the background image on the temperature graph.
+OctoPrint plugin to change the background image on the temperature graph.
 
 ![screenshot](screenshot.png)
 

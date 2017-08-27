@@ -1,6 +1,8 @@
 # coding=utf-8
 
 import octoprint.plugin
+import os
+import flask
 
 class custombackground(octoprint.plugin.AssetPlugin,
 				octoprint.plugin.TemplatePlugin,
@@ -12,11 +14,19 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		
 	##-- Settings hooks
 	def get_settings_defaults(self):
-		return dict(background_url="/static/img/graph-background.png")	
+		return dict(background_url="/static/img/graph-background.png",background_path=self.get_plugin_data_folder())
 	
 	##-- Template hooks
 	def get_template_configs(self):
 		return [dict(type="settings",custom_bindings=False)]
+
+	##-- Image upload extenstion tree hook
+	def get_extension_tree(self, *args, **kwargs):
+		return dict(
+			machinecode=dict(
+				custombackground=["jpg", "bmp", "png"]
+			)
+		)
 		
 	##~~ Softwareupdate hook
 	def get_version(self):
@@ -47,5 +57,6 @@ def __plugin_load__():
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
-		"octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
+		"octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+		"octoprint.filemanager.extension_tree": __plugin_implementation__.get_extension_tree
 	}

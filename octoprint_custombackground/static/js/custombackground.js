@@ -5,9 +5,11 @@ $(function() {
 		self.settings = parameters[0];
 		
 		self.background_url = ko.observable();
+		self.background_path = ko.observable();
 		
 		self.onBeforeBinding = function() {
             self.background_url(self.settings.settings.plugins.custombackground.background_url());
+			self.background_path(self.settings.settings.plugins.custombackground.background_path());
         }
 		
 		self.onAfterBinding = function() {

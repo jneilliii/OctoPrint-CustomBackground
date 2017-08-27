@@ -19,8 +19,6 @@ $(function() {
 		self.onEventSettingsUpdated = function (payload) {            
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
 			$("#temperature-graph").css("background-image","url('" + self.settings.settings.plugins.custombackground.background_url() + "')");
-			console.log(payload);
-			console.log(self.settings.settings.plugins.custombackground.background_path());
         }
     }
 

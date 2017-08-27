@@ -10,6 +10,10 @@ $(function() {
             self.background_url(self.settings.settings.plugins.custombackground.background_url());
         }
 		
+		self.onAfterBinding = function() {
+			$("#temperature-graph").css("background","url(" + self.settings.settings.plugins.custombackground.background_url() + ")");
+		}
+		
 		self.onEventSettingsUpdated = function (payload) {            
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
         }

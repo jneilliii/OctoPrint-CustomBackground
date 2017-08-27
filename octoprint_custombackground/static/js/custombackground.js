@@ -5,9 +5,11 @@ $(function() {
 		self.settings = parameters[0];
 		
 		self.background_url = ko.observable();
+		self.background_path = ko.observable();
 		
 		self.onBeforeBinding = function() {
             self.background_url(self.settings.settings.plugins.custombackground.background_url());
+			self.background_path(self.settings.settings.plugins.custombackground.background_path());
         }
 		
 		self.onAfterBinding = function() {
@@ -17,8 +19,8 @@ $(function() {
 		self.onEventSettingsUpdated = function (payload) {            
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
 			$("#temperature-graph").css("background-image","url('" + self.settings.settings.plugins.custombackground.background_url() + "')");
-			console.log(self.settings.settings.plugins.custombackground.get_plugin_data_folder());
 			console.log(payload);
+			console.log(self.settings.settings.plugins.custombackground.background_path());
         }
     }
 

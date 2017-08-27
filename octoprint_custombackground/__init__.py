@@ -35,7 +35,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	def get_update_information(self):
 		return dict(
 			custombackground=dict(
-				displayName="custombackground",
+				displayName="Custom Background",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository

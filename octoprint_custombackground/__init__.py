@@ -58,5 +58,9 @@ def __plugin_load__():
 	global __plugin_hooks__
 	__plugin_hooks__ = {
 		"octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+<<<<<<< HEAD
 		"octoprint.filemanager.extension_tree": __plugin_implementation__.get_extension_tree
+=======
+		"octoprint.filemanager.extension_tree": __plugin_implementation__.plugin.get_extension_tree
+>>>>>>> c16f58041514c7e9b334f4b1797d336008f997f6
 	}

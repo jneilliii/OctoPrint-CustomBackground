@@ -1,8 +1,6 @@
-# OctoPrint-M117PopUp
+# OctoPrint-CustomBackground
 
-Octoprint plugin to send M117 gcode messages to OctoPrint's built in alerting system.
-
-Note: this plugin does NOT work with files on the SD card.
+Octoprint plugin to change the background image on the temperature graph.
 
 ![screenshot](screenshot.png)
 
@@ -13,15 +11,12 @@ Note: this plugin does NOT work with files on the SD card.
 
 Install via the bundled Plugin Manager or manually using this URL:
 
-https://github.com/jneilliii/OctoPrint-M117PopUp/archive/master.zip
+https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 
 ###Changelog
 
-* Version 0.6.0 released 12/24/2016
-  * updated configuration model from the deprecated 3 tuple method.
-
-* Version 0.5.0 released 09/25/2016
-  * added settings interface
-  * new settings
-    * Message Type: [type](https://sciactive.com/pnotify/#demos-simple) to be used for PNotify parameters.
-    * Auto Close: if enabled pop up will disappear after a period of time.	
+* Version 0.1.0 released 08/27/2017
+  * Initial release
+  
+###To-Do
+* [ ] Figure out how to upload a custom file to the system in lieu of using a url.

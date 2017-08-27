@@ -39,7 +39,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			)
 		)
 
-__plugin_name__ = "custombackground"
+__plugin_name__ = "Custom Background"
 
 def __plugin_load__():
 	global __plugin_implementation__

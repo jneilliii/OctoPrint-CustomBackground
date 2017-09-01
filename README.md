@@ -8,7 +8,7 @@ OctoPrint plugin to change the background image on the temperature graph.
 
 Once installed upload files into the local side (not SD) and the page will refresh with no background or set url in settings to an address of an image you want to use.
 
-###Setup
+### Setup
 
 Install via the bundled Plugin Manager or manually using this URL:
 

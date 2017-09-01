@@ -23,7 +23,9 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 * Version 0.3.0 released 09/01/2017
   * Fixed sizing of image to cover the entire temp_graph div.
   * Added preprocessor to automatically update plugin settings on file upload.
+* Version 0.4.0 released 09/01/2017
+  * Added automatic reload of page.
   
 ###To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.
-* [ ] Figure out how to automatically refresh page after file upload.
+* [X] Figure out how to automatically refresh page after file upload.

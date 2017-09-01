@@ -20,6 +20,16 @@ $(function() {
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
 			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":"cover"});
         }
+		
+		self.onDataUpdaterPluginMessage = function(plugin, data) {
+            if (plugin != "custombackground") {
+                return;
+            }
+			
+			if(data.type == "reload") {
+				window.location.reload(true);
+			}
+		}
     }
 
     // This is how our plugin registers itself with the application, by adding some configuration

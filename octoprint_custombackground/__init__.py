@@ -35,11 +35,9 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			return file_object
 
 		name, extension = os.path.splitext(file_object.filename)
-		if extension not in [".jpg", ".bmp", ".png"]:
-			return file_object
-
-		self._logger.info(path)
-		self._logger.info(file_object.filename)
+		if extension in [".jpg", ".bmp", ".png"]:			
+			self._logger.info(path)
+			self._logger.info(file_object.filename)
 		return file_object
 		
 	##~~ Softwareupdate hook

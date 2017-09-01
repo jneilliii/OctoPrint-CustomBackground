@@ -31,17 +31,9 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	
 	##-- Image upload preprocessor hook	
 	def custombackgroundupload(self, path, file_object, links=None, printer_profile=None, allow_overwrite=True, *args, **kwargs):
-		self._logger.info(path)
-		self._logger.info(file_object.filename)
-		if not octoprint.filemanager.valid_file_type(path, type="gcode"):
-			return file_object
-
-		self._logger.info(path)
-		self._logger.info(file_object.filename)
 		name, extension = os.path.splitext(file_object.filename)
 		if extension in [".jpg", ".bmp", ".png"]:			
-			self._logger.info(path)
-			self._logger.info(file_object.filename)
+			self._settings.set(["background_url"],file_object.filename,True))
 		return file_object
 		
 	##~~ Softwareupdate hook

@@ -25,6 +25,8 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
   * Added preprocessor to automatically update plugin settings on file upload.
 * Version 0.4.0 released 09/01/2017
   * Added automatic reload of page.
+* Version 0.5.0 released 09/01/2017
+  * Added image fill options to settings to control the css backgroiund-size property.
   
 ###To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.

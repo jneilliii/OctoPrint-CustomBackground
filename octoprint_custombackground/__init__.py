@@ -2,7 +2,8 @@
 
 import octoprint.plugin
 import os
-import flask
+import octoprint.filemanager
+import octoprint.filemanager.util
 
 class custombackground(octoprint.plugin.AssetPlugin,
 				octoprint.plugin.TemplatePlugin,
@@ -27,6 +28,16 @@ class custombackground(octoprint.plugin.AssetPlugin,
 				custombackground=["jpg", "bmp", "png"]
 			)
 		)
+	
+	##-- Image upload preprocessor hook	
+	def custombackgroundupload(self, path, file_object, links=None, printer_profile=None, allow_overwrite=True, *args, **kwargs):
+		img_extensions = [".jpg", ".bmp", ".png"]
+		name, extension = os.path.splitext(file_object.filename)
+		if extension in img_extensions:
+			self._logger.info("Setting background url for " + path)
+			self._settings.set(["background_url"],"/downloads/files/local/" + path)
+			self._settings.save()
+		return file_object
 		
 	##~~ Softwareupdate hook
 	def get_version(self):
@@ -58,5 +69,6 @@ def __plugin_load__():
 	global __plugin_hooks__
 	__plugin_hooks__ = {
 		"octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
-		"octoprint.filemanager.extension_tree": __plugin_implementation__.get_extension_tree
+		"octoprint.filemanager.extension_tree": __plugin_implementation__.get_extension_tree,
+		"octoprint.filemanager.preprocessor": __plugin_implementation__.custombackgroundupload
 	}

@@ -6,6 +6,7 @@ OctoPrint plugin to change the background image on the temperature graph.
 
 ![screenshot](settings.png)
 
+Once installed upload files into the local side (not SD) and then refresh the page.
 
 ###Setup
 
@@ -19,6 +20,9 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
   * Initial release
 * Version 0.2.0 released 08/27/2017
   * Added the ability to upload images (jpg,bmp,png) via OctoPrint's Files area.
+* Version 0.3.0 released 09/01/2017
+  * Fixed sizing of image to cover the entire temp_graph div.
+  * Added preprocessor to automatically update plugin settings on file upload.
   
 ###To-Do
 * [ ] Figure out how to upload a custom file to the system in lieu of using a url.

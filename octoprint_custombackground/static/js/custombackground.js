@@ -13,12 +13,12 @@ $(function() {
         }
 		
 		self.onAfterBinding = function() {
-			$("#temperature-graph").css("background-image","url('" + self.settings.settings.plugins.custombackground.background_url() + "')");
+			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":"cover"});
 		}
 		
 		self.onEventSettingsUpdated = function (payload) {            
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
-			$("#temperature-graph").css("background-image","url('" + self.settings.settings.plugins.custombackground.background_url() + "')");
+			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":"cover"});
         }
     }
 

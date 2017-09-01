@@ -35,12 +35,12 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			return file_object
 
 		name, extension = os.path.splitext(file_object.filename)
-		if extension not in ["jpg", "bmp", "png"]:
+		if extension not in [".jpg", ".bmp", ".png"]:
 			return file_object
 
 		self._logger.info(path)
 		self._logger.info(file_object.filename)
-		return octoprint.filemanager.util.StreamWrapper(file_object.filename, file_object.stream())
+		return file_object
 		
 	##~~ Softwareupdate hook
 	def get_version(self):

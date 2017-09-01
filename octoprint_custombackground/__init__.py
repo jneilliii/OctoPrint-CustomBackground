@@ -71,5 +71,5 @@ def __plugin_load__():
 	__plugin_hooks__ = {
 		"octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
 		"octoprint.filemanager.extension_tree": __plugin_implementation__.get_extension_tree,
-		"octoprint.filemanager.preprocessor": custombackgroundupload
+		"octoprint.filemanager.preprocessor": __plugin_implementation__.custombackgroundupload
 	}

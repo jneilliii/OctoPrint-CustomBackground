@@ -34,9 +34,8 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		img_extensions = [".jpg", ".bmp", ".png"]
 		name, extension = os.path.splitext(file_object.filename)
 		if extension in img_extensions:
-			self._logger.info(extension)
-			self._logger.info(self._settings.get(["background_url"]))
 			self._settings.set(["background_url"],file_object.filename)
+			self._settings.save()
 		return file_object
 		
 	##~~ Softwareupdate hook

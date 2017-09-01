@@ -33,6 +33,8 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	def custombackgroundupload(self, path, file_object, links=None, printer_profile=None, allow_overwrite=True, *args, **kwargs):
 		img_extensions = [".jpg", ".bmp", ".png"]
 		name, extension = os.path.splitext(file_object.filename)
+		self._logger.info(extension)
+		self._logger.info(extension in img_extensions)
 		if extension in img_extensions:
 			self._logger.info(extension)
 			self._settings.set(["background_url"],file_object.filename,True)

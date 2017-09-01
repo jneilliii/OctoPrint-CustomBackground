@@ -25,4 +25,5 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
   * Added preprocessor to automatically update plugin settings on file upload.
   
 ###To-Do
-* [ ] Figure out how to upload a custom file to the system in lieu of using a url.
+* [X] Figure out how to upload a custom file to the system in lieu of using a url.
+* [ ] Figure out how to automatically refresh page after file upload.

@@ -25,13 +25,13 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	def get_extension_tree(self, *args, **kwargs):
 		return dict(
 			machinecode=dict(
-				custombackground=["jpg", "bmp", "png"]
+				custombackground=["jpg", "bmp", "png", "gif"]
 			)
 		)
 	
 	##-- Image upload preprocessor hook	
 	def custombackgroundupload(self, path, file_object, links=None, printer_profile=None, allow_overwrite=True, *args, **kwargs):
-		img_extensions = [".jpg", ".bmp", ".png"]
+		img_extensions = [".jpg", ".bmp", ".png", ".gif"]
 		name, extension = os.path.splitext(file_object.filename)
 		if extension in img_extensions:
 			self._logger.info("Setting background url for " + path)

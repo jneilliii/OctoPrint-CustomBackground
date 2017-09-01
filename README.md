@@ -14,7 +14,7 @@ Install via the bundled Plugin Manager or manually using this URL:
 
 https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 
-###Changelog
+### Changelog
 
 * Version 0.1.0 released 08/27/2017
   * Initial release
@@ -26,6 +26,6 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 * Version 0.4.0 released 09/01/2017
   * Added automatic reload of page.
   
-###To-Do
+### To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.
 * [X] Figure out how to automatically refresh page after file upload.

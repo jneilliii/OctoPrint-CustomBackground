@@ -37,6 +37,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			self._logger.info("Setting background url for " + path)
 			self._settings.set(["background_url"],"/downloads/files/local/" + path)
 			self._settings.save()
+			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
 		return file_object
 		
 	##~~ Softwareupdate hook

@@ -5,20 +5,31 @@ $(function() {
 		self.settings = parameters[0];
 		
 		self.background_url = ko.observable();
-		self.background_path = ko.observable();
+		self.fillMethod = ko.observable();
+		self.fillOptions = ko.observableArray([{
+						name : 'auto',
+						value : 'auto'
+					}, {
+						name : 'cover',
+						value : 'cover'
+					}, {
+						name : 'contain',
+						value : 'contain'
+					}
+				]);
 		
 		self.onBeforeBinding = function() {
             self.background_url(self.settings.settings.plugins.custombackground.background_url());
-			self.background_path(self.settings.settings.plugins.custombackground.background_path());
+			self.fillMethod(self.settings.settings.plugins.custombackground.fillMethod());
         }
 		
 		self.onAfterBinding = function() {
-			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":"cover"});
+			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod()});
 		}
 		
 		self.onEventSettingsUpdated = function (payload) {            
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
-			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":"cover"});
+			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod()});
         }
 		
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
@@ -44,6 +55,6 @@ $(function() {
         ["settingsViewModel"],
 
         // Finally, this is the list of selectors for all elements we want this view model to be bound to.
-        []
+        ["#settings_plugin_custombackground_form"]
     ]);
 });

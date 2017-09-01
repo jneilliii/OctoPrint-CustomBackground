@@ -15,11 +15,11 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		
 	##-- Settings hooks
 	def get_settings_defaults(self):
-		return dict(background_url="/static/img/graph-background.png",background_path=self.get_plugin_data_folder())
+		return dict(background_url="/static/img/graph-background.png",fillMethod="cover")
 	
 	##-- Template hooks
 	def get_template_configs(self):
-		return [dict(type="settings",custom_bindings=False)]
+		return [dict(type="settings",custom_bindings=True)]
 
 	##-- Image upload extenstion tree hook
 	def get_extension_tree(self, *args, **kwargs):

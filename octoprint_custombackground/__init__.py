@@ -34,11 +34,10 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		if not octoprint.filemanager.valid_file_type(path, type="gcode"):
 			return file_object
 
+		self._logger.info(path)
+		self._logger.info(file_object.filename)
 		name, extension = os.path.splitext(file_object.filename)
 		if extension in [".jpg", ".bmp", ".png"]:			
-			self._logger.info(path)
-			self._logger.info(file_object.filename)
-		else:
 			self._logger.info(path)
 			self._logger.info(file_object.filename)
 		return file_object

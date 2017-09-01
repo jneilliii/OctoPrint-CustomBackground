@@ -4,13 +4,13 @@
 	<div class="control-group">
 		<label class="control-label">{{ _('Custom Background URL') }}</label>
 		<div class="controls">
-			<input type="text" class="input-block-level" data-bind="value: settings.plugins.custombackground.background_url" size="10">
+			<input type="text" class="input-block-level" data-bind="value: settings.settings.plugins.custombackground.background_url" size="10">
         </div>
     </div>
     <div class="control-group">
 		<label class="control-label">{{ _('Image Fill Method') }}</label>
         <div class="controls">
-			<select data-bind="options: settings.plugins.custombackground.fillOptions,optionsText: 'name',optionsValue: 'value',value: settings.plugins.custombackground.fillMethod"></select>
+			<select data-bind="options: settings.plugins.custombackground.fillOptions,optionsText: 'name',optionsValue: 'value',value: settings.settings.plugins.custombackground.fillMethod"></select>
         </div>
 	</div>
 </form>

@@ -14,7 +14,7 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 
 ### Configuration
 
-Once installed upload image into the local storage and the page will refresh automatically with new background. Once refreshed you can delete the uploaded iamge and it will not impact the background. Adjust Image Fill method in Custom Background settings as needed.
+Once installed upload image into the local storage and the page will refresh automatically with new background. Once refreshed you can delete the uploaded image and it will not impact the background. Adjust Image Fill method in Custom Background settings as needed.
 
 ### Changelog
 

@@ -28,6 +28,10 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 * Version 0.5.0 released 09/01/2017
   * Added image fill options to settings to control the css backgroiund-size property.
   * Added gif image support.
+* Version 0.6.0 released 09/17/2017
+  * Removed url field in favor of file upload method.
+  * Uploaded file is copied into plugin's data folder, files can now be deleted without impacting the background.
+  * Uses routes hook to map plugin's data folder for loading copied image.
   
 ### To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.

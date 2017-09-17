@@ -35,11 +35,12 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		name, extension = os.path.splitext(file_object.filename)
 		if extension in img_extensions:
 			self._logger.info("Setting background url for " + path)
-			self._logger.info(self.get_plugin_data_folder())
-			self._settings.set(["background_url"],"/plugin/custombackground/" + name)
+			file_object.save(self.get_plugin_data_folder() + "/" + file_object.filename)
+			self._logger.info(self.get_plugin_data_folder() + "/" + file_object.filename)
+			self._settings.set(["background_url"],"/plugin/custombackground/" + file_object.filename)
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
-			return octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + name, file_object.stream())
+			return
 		return file_object
 		
 	##~~ Routes hook

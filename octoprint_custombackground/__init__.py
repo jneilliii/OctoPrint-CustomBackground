@@ -40,7 +40,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			self._settings.set(["background_url"],"/plugin/custombackground/" + file_object.filename)
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
-			return
+			return None
 		return file_object
 		
 	##~~ Routes hook

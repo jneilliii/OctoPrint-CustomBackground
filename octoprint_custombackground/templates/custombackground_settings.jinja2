@@ -7,4 +7,10 @@
 			<select data-bind="options: fillOptions,optionsText: 'name',optionsValue: 'value',value: settings.settings.plugins.custombackground.fillMethod"></select>
         </div>
 	</div>
+    <div class="control-group">
+		<label class="control-label">{{ _('Background Position') }}</label>
+        <div class="controls">
+			<input type="text" class="input-block-level" data-bind="value: settings.settings.plugins.custombackground.position">
+        </div>
+	</div>
 </form>

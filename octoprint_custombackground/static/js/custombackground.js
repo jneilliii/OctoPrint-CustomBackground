@@ -17,19 +17,21 @@ $(function() {
 						value : 'contain'
 					}
 				]);
+		self.position = ko.observable();
 		
 		self.onBeforeBinding = function() {
             self.background_url(self.settings.settings.plugins.custombackground.background_url());
 			self.fillMethod(self.settings.settings.plugins.custombackground.fillMethod());
+			self.position(self.settings.settings.plugins.custombackground.position());
         }
 		
 		self.onAfterBinding = function() {
-			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod()});
+			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
 		}
 		
 		self.onEventSettingsUpdated = function (payload) {            
             self.background_url = self.settings.settings.plugins.custombackground.background_url();
-			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod()});
+			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
         }
 		
 		self.onDataUpdaterPluginMessage = function(plugin, data) {

@@ -26,7 +26,7 @@ $(function() {
         }
 		
 		self.onAfterBinding = function() {
-			$("#temperature-graph").css({"background-image":"url('" + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
+			$("#temperature-graph").css({"background-image":"url('" + window.location.href.replace(/[^/]*$/, '') + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
 		}
 		
 		self.onEventSettingsUpdated = function (payload) {            

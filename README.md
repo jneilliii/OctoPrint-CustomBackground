@@ -14,7 +14,7 @@ https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip
 
 ### Configuration
 
-Once installed upload image into the local storage and the page will refresh automatically with new background. Once refreshed you can delete the uploaded image and it will not impact the background. Adjust Image Fill method in Custom Background settings as needed.
+Once installed upload image into the local storage and the page will refresh automatically with new background. Once refreshed you can delete the uploaded image and it will not impact the background. Adjust Image Fill method and [Background Position](https://www.w3schools.com/cssref/pr_background-position.asp) in Custom Background settings as needed.
 
 ### Changelog
 
@@ -34,6 +34,8 @@ Once installed upload image into the local storage and the page will refresh aut
   * Removed url field in favor of file upload method.
   * Uploaded file is copied into plugin's data folder, files can now be deleted without impacting the background.
   * Uses routes hook to map plugin's data folder for loading copied image.
+* Version 0.7.0 released 10/17/2017
+  * Added background position settings.
   
 ### To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.

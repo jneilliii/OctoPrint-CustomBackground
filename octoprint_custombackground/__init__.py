@@ -47,7 +47,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	def route_hook(self, server_routes, *args, **kwargs):
 		from octoprint.server.util.tornado import LargeResponseHandler, UrlProxyHandler, path_validation_factory
 		from octoprint.util import is_hidden_path
-
+		self._logger.info(server_routes)
 		return [
 				(r"/(.*)", LargeResponseHandler, dict(path=self.get_plugin_data_folder(),
 																as_attachment=True,

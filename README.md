@@ -36,6 +36,8 @@ Once installed upload image into the local storage and the page will refresh aut
   * Uses routes hook to map plugin's data folder for loading copied image.
 * Version 0.7.0 released 10/17/2017
   * Added background position settings.
+* Version 0.8.0 released 12/09/2017
+  * Changed url to include full urlto deal with issues related to X-Script-Name redirects in haproxy to multiple OctoPrint instances.
   
 ### To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.

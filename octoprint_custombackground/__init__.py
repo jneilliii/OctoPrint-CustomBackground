@@ -15,7 +15,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		
 	##-- Settings hooks
 	def get_settings_defaults(self):
-		return dict(background_url="/static/img/graph-background.png",fillMethod="cover",position="center center")
+		return dict(background_url="/static/img/graph-background.png",icon_url="/static/img/tentacle-20x20.png",fillMethod="cover",position="center center")
 	
 	##-- Template hooks
 	def get_template_configs(self):
@@ -33,6 +33,15 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	def custombackgroundupload(self, path, file_object, links=None, printer_profile=None, allow_overwrite=True, *args, **kwargs):
 		img_extensions = [".jpg", ".bmp", ".png", ".gif"]
 		name, extension = os.path.splitext(file_object.filename)
+		if name == "icon":
+			self._logger.info("Setting icon url for " + path)
+			#file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)
+			octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + "/icon" + extension, file_object.stream()).save(self.get_plugin_data_folder() + "/icon" + extension)
+			self._logger.info(self.get_plugin_data_folder() + "/icon" + extension)
+			self._settings.set(["icon_url"],"/plugin/custombackground/icon" + extension)
+			self._settings.save()
+			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
+			return file_object
 		if extension in img_extensions:
 			self._logger.info("Setting background url for " + path)
 			#file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)

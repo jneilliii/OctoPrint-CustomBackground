@@ -40,7 +40,14 @@ Once installed upload image into the local storage and the page will refresh aut
   * Changed url to include full url to deal with issues related to X-Script-Name redirects in haproxy to multiple OctoPrint instances.
 * Version 0.9.0 released 03/24/2018
   * Added ability to change branding icon. File uploaded must be named "icon".
+* Version 0.10.0 released 04/13/2018
+  * Added reset button to put the interface back to stock.
   
 ### To-Do
 * [X] Figure out how to upload a custom file to the system in lieu of using a url.
 * [X] Figure out how to automatically refresh page after file upload.
+
+## Support My Efforts
+I programmed this plugin for fun and do my best effort to support those that have issues with it, please return the favor and support me.
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/jneilliii)

@@ -48,6 +48,12 @@ $(function() {
 				window.location.reload(true);
 			}
 		}
+		
+		self.resetBackgrounds = function(){
+			self.settings.settings.plugins.custombackground.background_url = '/static/img/graph-background.png';
+			self.settings.settings.plugins.custombackground.icon_url = '/static/img/tentacle-20x20.png';
+			self.settings.saveData();
+		}
     }
 
     // This is how our plugin registers itself with the application, by adding some configuration

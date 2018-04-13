@@ -32,11 +32,11 @@ $(function() {
 			$("#navbar .navbar-inner .brand span").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.icon_url() + "')"});
 		}
 		
-		self.onEventSettingsUpdated = function (payload) {  		
-            //self.background_url(self.settings.settings.plugins.custombackground.background_url());
-            //self.icon_url(self.settings.settings.plugins.custombackground.icon_url());
+		self.onEventSettingsUpdated = function (payload) {
+/*             self.background_url(self.settings.settings.plugins.custombackground.background_url);
+            self.icon_url(self.settings.settings.plugins.custombackground.icon_url);
 			$("#temperature-graph").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.background_url + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod,"background-position":self.settings.settings.plugins.custombackground.position});
-			$("#navbar .navbar-inner .brand span").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.icon_url + "')"});
+			$("#navbar .navbar-inner .brand span").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.icon_url + "')"}); */
         }
 		
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
@@ -52,6 +52,8 @@ $(function() {
 		self.resetBackgrounds = function(){
 			self.settings.settings.plugins.custombackground.background_url = '/static/img/graph-background.png';
 			self.settings.settings.plugins.custombackground.icon_url = '/static/img/tentacle-20x20.png';
+			self.settings.settings.plugins.custombackground.fillMethod = 'auto';
+			self.settings.settings.plugins.custombackground.position = 'center center';
 			self.settings.saveData();
 		}
     }

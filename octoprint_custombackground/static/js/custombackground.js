@@ -33,7 +33,7 @@ $(function() {
 		}
 		
 		self.onEventSettingsUpdated = function (payload) {            
-            self.background_url = self.settings.settings.plugins.custombackground.background_url();
+            self.background_url(self.settings.settings.plugins.custombackground.background_url());
             self.icon_url(self.settings.settings.plugins.custombackground.icon_url());
 			$("#temperature-graph").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
 			$("#navbar .navbar-inner .brand span").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.icon_url() + "')"});

@@ -9,15 +9,28 @@ class custombackground(octoprint.plugin.AssetPlugin,
 				octoprint.plugin.TemplatePlugin,
                 octoprint.plugin.SettingsPlugin):
 	
-	##-- AssetPlugin hooks
+	##-- AssetPlugin mixin
 	def get_assets(self):
 		return dict(js=["js/custombackground.js"])
-		
-	##-- Settings hooks
+
+	##-- Settings mixin
 	def get_settings_defaults(self):
-		return dict(background_url="/static/img/graph-background.png",icon_url="/static/img/tentacle-20x20.png",fillMethod="cover",position="center center")
-	
-	##-- Template hooks
+		return dict(background_url="/static/img/graph-background.png",icon_url="/static/img/tentacle-20x20.png",fillMethod="cover",position="center center",uploaded_url="")
+
+	def get_settings_version(self):
+		return 1
+		
+	def on_settings_migrate(self, target, current=None):
+		if current is None or current < 1:
+			migration_url = self._settings.get(["background_url"])
+			self._logger.info(migration_url)
+			if migration_url.startswith("/plugin/custombackground/uploaded"):
+				new_background_url = migration_url.replace("/plugin/custombackground/uploaded", "/plugin/custombackground/custom/uploaded")
+				self._logger.info(new_background_url)
+				self._settings.set(["background_url"], new_background_url)
+				self._settings.set(["uploaded_url"], new_background_url)
+
+	##-- Template mixin
 	def get_template_configs(self):
 		return [dict(type="settings",custom_bindings=True)]
 
@@ -38,7 +51,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			#file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + "/icon" + extension, file_object.stream()).save(self.get_plugin_data_folder() + "/icon" + extension)
 			self._logger.info(self.get_plugin_data_folder() + "/icon" + extension)
-			self._settings.set(["icon_url"],"/plugin/custombackground/icon" + extension)
+			self._settings.set(["icon_url"],"/plugin/custombackground/custom/icon" + extension)
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
 			return file_object
@@ -47,7 +60,8 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			#file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + "/uploaded" + extension, file_object.stream()).save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			self._logger.info(self.get_plugin_data_folder() + "/uploaded" + extension)
-			self._settings.set(["background_url"],"/plugin/custombackground/uploaded" + extension)
+			self._settings.set(["background_url"],"/plugin/custombackground/custom/uploaded" + extension)
+			self._settings.set(["uploaded_url"],"/plugin/custombackground/custom/uploaded" + extension)
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
 		return file_object
@@ -57,7 +71,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 		from octoprint.server.util.tornado import LargeResponseHandler, UrlProxyHandler, path_validation_factory
 		from octoprint.util import is_hidden_path
 		return [
-				(r"/(.*)", LargeResponseHandler, dict(path=self.get_plugin_data_folder(),
+				(r"/custom/(.*)", LargeResponseHandler, dict(path=self.get_plugin_data_folder(),
 																as_attachment=True,
 																path_validation=path_validation_factory(lambda path: not is_hidden_path(path),status_code=404)))
 				]

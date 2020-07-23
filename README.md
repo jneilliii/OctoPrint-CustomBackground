@@ -61,6 +61,7 @@ Check out my other plugins [here](https://plugins.octoprint.org/by_author/#jneil
 - [@TxBillbr](https://github.com/TxBillbr)
 - Gerald Dachs
 - [@TheTuxKeeper](https://github.com/thetuxkeeper)
+- @tideline3d
 
 ###
 

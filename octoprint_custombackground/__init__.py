@@ -62,7 +62,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 			octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + "/uploaded" + extension, file_object.stream()).save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			self._logger.info(self.get_plugin_data_folder() + "/uploaded" + extension)
 			self._settings.set(["background_url"],"/plugin/custombackground/custom/uploaded{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
-			self._settings.set(["uploaded_url"],"/plugin/custombackground/custom/uploaded" + extension)
+			self._settings.set(["uploaded_url"],"/plugin/custombackground/custom/uploaded{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
 		return file_object

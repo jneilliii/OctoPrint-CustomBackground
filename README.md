@@ -63,6 +63,7 @@ Check out my other plugins [here](https://plugins.octoprint.org/by_author/#jneil
 - [@TheTuxKeeper](https://github.com/thetuxkeeper)
 - @tideline3d
 - [SimplyPrint](https://simplyprint.dk/)
+- [Andrew Beeman](https://github.com/Kiendeleo)
 
 ###
 

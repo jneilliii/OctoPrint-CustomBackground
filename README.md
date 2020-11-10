@@ -64,6 +64,7 @@ Check out my other plugins [here](https://plugins.octoprint.org/by_author/#jneil
 - @tideline3d
 - [SimplyPrint](https://simplyprint.dk/)
 - [Andrew Beeman](https://github.com/Kiendeleo)
+- [Calanish](https://github.com/calanish)
 
 ###
 

@@ -102,13 +102,16 @@ $(function() {
 					self.temperatureViewModel.plot.getOptions().grid.borderColor = self.settings.settings.plugins.custombackground.tick_color();
 					self.temperatureViewModel.plot.getOptions().grid.markingsColor = self.settings.settings.plugins.custombackground.tick_color();
 				}
+				if(self.settings.settings.plugins.custombackground.temp_line_colors() !== ""){
+					self.temperatureViewModel.plot.getOptions().colors = JSON.parse(self.settings.settings.plugins.custombackground.temp_line_colors());
+				}
 				console.log(self.temperatureViewModel.plot.getOptions());
 			}
 		}
 
 		self.onAfterTabChange = function(current_tab, previous_tab){
 			if (current_tab == "#temp"){
-				if(self.settings.settings.plugins.custombackground.axes_text_color() !== "" || self.settings.settings.plugins.custombackground.tick_color()) {
+				if(self.settings.settings.plugins.custombackground.axes_text_color() !== "" || self.settings.settings.plugins.custombackground.tick_color() || self.settings.settings.plugins.custombackground.temp_line_colors() !== "") {
 					self._updateTempGraphOptions();
 				}
 			}

@@ -20,16 +20,22 @@
 			<input type="text" class="input-block" data-bind="value: settings.settings.plugins.custombackground.position">
 		</div>
 	</div>
+{#	<div class="control-group">#}
+{#        <label class="control-label">{{ _('Temp Color Array') }} <a href="javascript: void(0);" title="Array of colors to use for temperature lines" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>#}
+{#		<div class="controls">#}
+{#			<input type="text" placeholder='["red", "orange", "green", "brown", "purple"]' class="input-block input-xxlarge" data-bind="value: settings.settings.plugins.custombackground.temp_line_colors">#}
+{#		</div>#}
+{#	</div>#}
 	<div class="control-group">
         <label class="control-label">{{ _('Axes Text Color') }} <a href="https://www.w3schools.com/cssref/css_colors.asp" title="CSS Color Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
 		<div class="controls">
-			<input type="text" class="input-block" data-bind="value: settings.settings.plugins.custombackground.axes_text_color">
+			<input type="text" class="input-block" placeholder="rgba(84,84,84,0.22)" data-bind="value: settings.settings.plugins.custombackground.axes_text_color">
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">{{ _('Grid Lines Color') }} <a href="https://www.w3schools.com/cssref/css_colors.asp" title="CSS Color Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
 		<div class="controls">
-			<input type="text" class="input-block" data-bind="value: settings.settings.plugins.custombackground.tick_color">
+			<input type="text" class="input-block" placeholder="rgba(84,84,84,0.22)" data-bind="value: settings.settings.plugins.custombackground.tick_color">
 		</div>
 	</div>
 </form>

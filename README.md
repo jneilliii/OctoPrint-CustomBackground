@@ -20,14 +20,17 @@ Once installed upload image into the local storage and the page will refresh aut
 
 ## Most recent changelog
 
+**[1.0.0](https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/releases/tag/1.0.0)** (12/25/2020)
+
 * add all uppercase extension options
 * add support for jpeg and webp extensions
 * cache busters in thumbnail url based on upload timestamp
 * pre-package some generic grayscale images
 * add support for release channels available in OctoPrint 1.5.0
+* add text and grid color options
 * move out of beta versioning
 
-### [All releases](https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/releases)
+### [All releases](https://github.com/jneilliii/OctoPrint-CustomBackground/releases)
 
 ---
 

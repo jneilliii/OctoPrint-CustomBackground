@@ -16,7 +16,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 
 	##-- Settings mixin
 	def get_settings_defaults(self):
-		return dict(background_url="/static/img/graph-background.png",icon_url="/static/img/tentacle-20x20.png",fillMethod="cover",position="center center",uploaded_url="")
+		return dict(background_url="/static/img/graph-background.png", icon_url="/static/img/tentacle-20x20.png", fillMethod="cover", position="center center", uploaded_url="", axes_text_color="", tick_color="")
 
 	def get_settings_version(self):
 		return 1
@@ -45,24 +45,25 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	
 	##~~ Image upload preprocessor hook	
 	def custombackgroundupload(self, path, file_object, links=None, printer_profile=None, allow_overwrite=True, *args, **kwargs):
-		img_extensions = [".jpg", ".bmp", ".png", ".gif"]
+		img_extension_tree = self.get_extension_tree()
+		img_extensions = img_extension_tree.get("machinecode").get("custombackground")
 		name, extension = os.path.splitext(file_object.filename)
 		if name == "icon":
 			self._logger.info("Setting icon url for " + path)
 			#file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + "/icon" + extension, file_object.stream()).save(self.get_plugin_data_folder() + "/icon" + extension)
 			self._logger.info(self.get_plugin_data_folder() + "/icon" + extension)
-			self._settings.set(["icon_url"],"/plugin/custombackground/custom/icon{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
+			self._settings.set(["icon_url"], "/plugin/custombackground/custom/icon{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
 			return file_object
-		if extension in img_extensions:
+		if extension.replace(".", "") in img_extensions:
 			self._logger.info("Setting background url for " + path)
-			#file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)
+			# file_object.save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			octoprint.filemanager.util.StreamWrapper(self.get_plugin_data_folder() + "/uploaded" + extension, file_object.stream()).save(self.get_plugin_data_folder() + "/uploaded" + extension)
 			self._logger.info(self.get_plugin_data_folder() + "/uploaded" + extension)
-			self._settings.set(["background_url"],"/plugin/custombackground/custom/uploaded{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
-			self._settings.set(["uploaded_url"],"/plugin/custombackground/custom/uploaded{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
+			self._settings.set(["background_url"], "/plugin/custombackground/custom/uploaded{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
+			self._settings.set(["uploaded_url"], "/plugin/custombackground/custom/uploaded{}?{:%Y%m%d%H%M%S}".format(extension, datetime.datetime.now()))
 			self._settings.save()
 			self._plugin_manager.send_plugin_message(self._identifier, dict(type="reload"))
 		return file_object

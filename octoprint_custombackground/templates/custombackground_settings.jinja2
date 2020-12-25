@@ -1,21 +1,41 @@
 <h4>Custom Background Settings</h4>
 <div class="control-group">Upload your image file (jpg, bmp, png, gif supported) via OctoPrint's interface to the local side (Page will automatically refresh). You may delete the file once uploaded and the background will remain.</div>
 <form class="form-horizontal" id="settings_plugin_custombackground_form">
-    <div class="control-group">
-		<label class="control-label">{{ _('Image Fill Method') }}</label>
-        <div class="controls">
+	<div class="control-group">
+		<label class="control-label">{{ _('Background') }}</label>
+		<div class="controls">
+			<select data-bind="options: bundledImages,optionsText: 'name',optionsValue: 'path',value: settings.settings.plugins.custombackground.background_url"></select><br/>
+			<small>{{ _('Select Custom to use uploaded file.') }}</small>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">{{ _('Image Fill Method') }} <a href="https://www.w3schools.com/cssref/css3_pr_background-size.asp" title="CSS Background Size Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
+		<div class="controls">
 			<select data-bind="options: fillOptions,optionsText: 'name',optionsValue: 'value',value: settings.settings.plugins.custombackground.fillMethod"></select>
-        </div>
+		</div>
 	</div>
-    <div class="control-group">
-		<label class="control-label">{{ _('Background Position') }}</label>
-        <div class="controls">
-			<input type="text" class="input-block-level" data-bind="value: settings.settings.plugins.custombackground.position">
-        </div>
+	<div class="control-group">
+		<label class="control-label">{{ _('Background Position') }} <a href="https://www.w3schools.com/cssref/pr_background-position.asp" title="CSS Background Position Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
+		<div class="controls">
+			<input type="text" class="input-block" data-bind="value: settings.settings.plugins.custombackground.position">
+		</div>
 	</div>
-    <div class="control-group">
-        <div class="controls">
-			<button data-bind="click: resetBackgrounds" class="btn btn-primary">Reset Backgrounds</button>
-        </div>
+{#	<div class="control-group">#}
+{#        <label class="control-label">{{ _('Temp Color Array') }} <a href="javascript: void(0);" title="Array of colors to use for temperature lines" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>#}
+{#		<div class="controls">#}
+{#			<input type="text" placeholder='["red", "orange", "green", "brown", "purple"]' class="input-block input-xxlarge" data-bind="value: settings.settings.plugins.custombackground.temp_line_colors">#}
+{#		</div>#}
+{#	</div>#}
+	<div class="control-group">
+        <label class="control-label">{{ _('Axes Text Color') }} <a href="https://www.w3schools.com/cssref/css_colors.asp" title="CSS Color Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
+		<div class="controls">
+			<input type="text" class="input-block" placeholder="rgba(84,84,84,0.22)" data-bind="value: settings.settings.plugins.custombackground.axes_text_color">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">{{ _('Grid Lines Color') }} <a href="https://www.w3schools.com/cssref/css_colors.asp" title="CSS Color Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
+		<div class="controls">
+			<input type="text" class="input-block" placeholder="rgba(84,84,84,0.22)" data-bind="value: settings.settings.plugins.custombackground.tick_color">
+		</div>
 	</div>
 </form>

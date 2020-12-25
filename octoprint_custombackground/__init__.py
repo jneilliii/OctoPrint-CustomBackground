@@ -39,7 +39,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 	def get_extension_tree(self, *args, **kwargs):
 		return dict(
 			machinecode=dict(
-				custombackground=["jpg", "bmp", "png", "gif"]
+				custombackground=["jpg", "bmp", "png", "gif", "jpeg", "webp", "JPG", "BMP", "PNG", "GIF", "JPEG", "WEBP"]
 			)
 		)
 	
@@ -92,6 +92,16 @@ class custombackground(octoprint.plugin.AssetPlugin,
 				user="jneilliii",
 				repo="OctoPrint-CustomBackground",
 				current=self._plugin_version,
+				stable_branch=dict(
+					name="Stable", branch="master", comittish=["master"]
+				),
+				prerelease_branches=[
+					dict(
+						name="Release Candidate",
+						branch="rc",
+						comittish=["rc", "master"],
+					)
+				],
 
 				# update method: pip
 				pip="https://github.com/jneilliii/OctoPrint-CustomBackground/archive/{target_version}.zip"

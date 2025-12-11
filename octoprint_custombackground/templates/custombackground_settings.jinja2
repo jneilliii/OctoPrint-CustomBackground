@@ -14,6 +14,13 @@
 			<select data-bind="options: fillOptions,optionsText: 'name',optionsValue: 'value',value: settings.settings.plugins.custombackground.fillMethod"></select>
 		</div>
 	</div>
+	<div class="control-group" data-bind="visible: settings.settings.plugins.custombackground.fillMethod() === 'custom'">
+		<label class="control-label">{{ _('Custom Fill Size') }}</label>
+		<div class="controls">
+			<input type="text" class="input-block" placeholder="e.g., 50%, 100px, auto" data-bind="value: settings.settings.plugins.custombackground.customFillSize">
+			<small>{{ _('Enter a valid CSS background-size value like 50%% or 100px or auto') }}</small>
+		</div>
+	</div>
 	<div class="control-group">
 		<label class="control-label">{{ _('Background Position') }} <a href="https://www.w3schools.com/cssref/pr_background-position.asp" title="CSS Background Position Specification" target="_blank" style="text-decoration: none;"><i class="icon icon-info-sign"></i></a></label>
 		<div class="controls">

@@ -9,17 +9,21 @@ $(function() {
 		self.icon_url = ko.observable();
 		self.fillMethod = ko.observable();
 		self.fillOptions = ko.observableArray([{
-						name : 'auto',
+						name : 'Auto',
 						value : 'auto'
 					}, {
-						name : 'cover',
+						name : 'Cover',
 						value : 'cover'
 					}, {
-						name : 'contain',
+						name : 'Contain',
 						value : 'contain'
+					}, {
+						name : 'Custom Value',
+						value : 'custom'
 					}
 				]);
 		self.position = ko.observable();
+		self.customFillSize = ko.observable();
 		self.selectedBundledImage = ko.observable('')
 
 		self.onBeforeBinding = function() {
@@ -45,10 +49,15 @@ $(function() {
 			self.icon_url(self.settings.settings.plugins.custombackground.icon_url());
 			self.fillMethod(self.settings.settings.plugins.custombackground.fillMethod());
 			self.position(self.settings.settings.plugins.custombackground.position());
+			self.customFillSize(self.settings.settings.plugins.custombackground.customFillSize());
 		}
 
 		self.onAfterBinding = function() {
-			$("#temperature-graph").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
+			var fillSize = self.settings.settings.plugins.custombackground.fillMethod();
+			if (fillSize === 'custom') {
+				fillSize = self.settings.settings.plugins.custombackground.customFillSize() || '50%';
+			}
+			$("#temperature-graph").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":fillSize,"background-position":self.settings.settings.plugins.custombackground.position()});
 			$("#navbar .navbar-inner .brand span").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.icon_url() + "')"});
 		}
 
@@ -63,6 +72,7 @@ $(function() {
 		self.onEventSettingsUpdated = function (payload) {
 			self.background_url(self.settings.settings.plugins.custombackground.background_url());
 			self.icon_url(self.settings.settings.plugins.custombackground.icon_url());
+			self.customFillSize(self.settings.settings.plugins.custombackground.customFillSize());
 			self.bundledImages = ko.observableArray([{
 							name : 'OctoPrint',
 							path : '/static/img/graph-background.png'
@@ -81,7 +91,11 @@ $(function() {
 						}
 					]);
 
-			$("#temperature-graph").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":self.settings.settings.plugins.custombackground.fillMethod(),"background-position":self.settings.settings.plugins.custombackground.position()});
+			var fillSize = self.settings.settings.plugins.custombackground.fillMethod();
+			if (fillSize === 'custom') {
+				fillSize = self.settings.settings.plugins.custombackground.customFillSize() || '50%';
+			}
+			$("#temperature-graph").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.background_url() + "')","background-size":fillSize,"background-position":self.settings.settings.plugins.custombackground.position()});
 			$("#navbar .navbar-inner .brand span").css({"background-image":"url('" + window.location.pathname.replace(/\/$/, '') + self.settings.settings.plugins.custombackground.icon_url() + "')"});
 		}
 

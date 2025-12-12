@@ -16,7 +16,7 @@ class custombackground(octoprint.plugin.AssetPlugin,
 
 	##-- Settings mixin
 	def get_settings_defaults(self):
-		return dict(background_url="/static/img/graph-background.png", icon_url="/static/img/tentacle-20x20.png", fillMethod="cover", position="center center", uploaded_url="", axes_text_color="", tick_color="", temp_line_colors="")
+		return dict(background_url="/static/img/graph-background.png", icon_url="/static/img/tentacle-20x20.png", fillMethod="cover", position="center center", uploaded_url="", axes_text_color="", tick_color="", temp_line_colors="", customFillSize="50%")
 
 	def get_settings_version(self):
 		return 1

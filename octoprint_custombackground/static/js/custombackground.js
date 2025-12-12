@@ -9,13 +9,13 @@ $(function() {
 		self.icon_url = ko.observable();
 		self.fillMethod = ko.observable();
 		self.fillOptions = ko.observableArray([{
-						name : 'auto',
+						name : 'Auto',
 						value : 'auto'
 					}, {
-						name : 'cover',
+						name : 'Cover',
 						value : 'cover'
 					}, {
-						name : 'contain',
+						name : 'Contain',
 						value : 'contain'
 					}, {
 						name : 'Custom Value',
